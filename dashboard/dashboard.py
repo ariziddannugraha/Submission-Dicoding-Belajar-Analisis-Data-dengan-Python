@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
-import mpld3
 import streamlit.components.v1 as components
 
 df = pd.read_csv("main_data.csv")
