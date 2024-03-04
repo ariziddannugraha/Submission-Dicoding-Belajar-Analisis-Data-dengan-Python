@@ -1,6 +1,7 @@
 # Submission-Dicoding-Belajar-Analisis-Data-dengan-Python
 
 Dataset Bike Sharing
+Ari Ziddan Nugraha
 
 ## Cara Mengakses :
 1. Clone this repository
