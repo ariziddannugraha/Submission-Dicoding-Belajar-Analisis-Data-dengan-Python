@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit.components.v1 as components
 
-df = pd.read_csv("main_data.csv")
+df = pd.read_csv("dashboard/main_data.csv")
 
 # Filter data
 min_date = pd.to_datetime(df['dteday']).dt.date.min()
