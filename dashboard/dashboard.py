@@ -38,6 +38,7 @@ def create_daily_registered_rent_df(df):
 with st.sidebar:
     st.text('Choose Wisely')
     st.image('https://media.giphy.com/media/3o7abqxwe7kj2DRcqY/giphy.gif?cid=790b7611poi5jqsgvkzpbww25ave8vb43hlevrv2j3kqk0xj&ep=v1_gifs_search&rid=giphy.gif&ct=g')
+    # get date start and end
     start_date, end_date = st.date_input(
         label='Rentang Waktu',
         min_value= min_date,
@@ -45,6 +46,7 @@ with st.sidebar:
         value=[min_date, max_date]
     )
 
+    # select year
     tahun = st.selectbox(
         label="Filter tahun*",
         options=(2011, 2012, "2011-2012")
@@ -52,6 +54,7 @@ with st.sidebar:
 
     st.caption("*hanya untuk pertanyaan 1")
 
+    # toogle dataset
     on = st.toggle("Tampilkan dataset")
 
     st.caption("Ari Ziddan Nugraha")
@@ -93,6 +96,7 @@ daily_rent_casual = daily_casual_rent_df['casual'].sum()
 daily_rent_registered = daily_registered_rent_df['registered'].sum()
 daily_rent_total = daily_rent_df['cnt'].sum()
 
+# pie chart user
 user = [daily_rent_casual, daily_rent_registered]
 label = ("casual", "registered")
 plt.pie(
@@ -101,10 +105,10 @@ plt.pie(
     wedgeprops = {'width': 0.4},
     autopct='%1.1f%%'
 )
-# plt.set_title('Daily Bike Rentals')
 st.pyplot(fig)
 st.write("{} Total User".format(daily_rent_total))
 
+# toogle dataset
 if on:
     st.subheader('Dataset review')
     main_df
@@ -143,6 +147,7 @@ with st.expander("**Kesimpulan pertanyaan 1**"):
 st.subheader('Pertanyaan 2')
 
 st.write("Apakah cuaca mempengaruhi order terhadap bike sharing?")
+# show by weather barplot
 by_weather = main_df.pivot_table(index='yr', columns='weathersit', values='cnt', aggfunc='sum')
 ax = by_weather.plot(kind="bar", figsize=(10,5))
 ax.set_xlabel("Tahun")
